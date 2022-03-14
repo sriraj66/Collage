@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+{% block title %}index{% endblock %}
+{% block root %}
+
+<h1>Index</h1>
+
+<a href="{% url 'register' %}">register</a>
+<a href="{% url 'login' %}">login</a>
+<a href="{% url 'logout' %}">logout</a>
+
+
+
+{% endblock %}

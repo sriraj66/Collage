@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+{% block title %}Register{% endblock %}
+{% block root %}
+
+<h1>Register</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
