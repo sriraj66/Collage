@@ -8,13 +8,17 @@ from django.db.models.signals import post_save
 
 class Students(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=20,null=True)
     reg_num=models.CharField(max_length=13,unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     phone=models.CharField(max_length=10,unique=True)
-    dob = models.DateField()
+    dob = models.DateField(null=True)
     mail = models.EmailField(unique=True)
 
     @receiver(post_save, sender=User) 
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Students.objects.create(user=instance)
+    def __str__(self):
+        return "{} ({})".format(self.name,self.user.username)
+

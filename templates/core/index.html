@@ -4,9 +4,20 @@
 
 <h1>Index</h1>
 
-<a href="{% url 'register' %}">register</a>
-<a href="{% url 'login' %}">login</a>
+{% if user.is_authenticated %}
 <a href="{% url 'logout' %}">logout</a>
+<br>
+<h2>{{data.name}}<small>({{data.user.username}})</small></h2> 
+{% else %}
+<a href="{% url 'login' %}">login</a>
+<a href="{% url 'register' %}">register</a>
+{% endif %}
+<br>
+{% if messages %}
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+{% endif %}
 
 
 

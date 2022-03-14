@@ -1,0 +1,18 @@
+{% extends 'template.html' %}
+{% block title %}Profile{% endblock %}
+{% block root %}
+
+<h1>Profile</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Reg.No" name="regno" id="regno">
+    <input type="text" placeholder="name" name="name" id="name">
+    <input type="email" name="mail" placeholder='mail' id="mail">
+    <input type="number" name="phone" placeholder="phone" id="phone">
+    <input type="date" name="date" id="date">
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
