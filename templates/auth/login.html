@@ -17,4 +17,18 @@
     <button type="submit">Submit</button>
 </form>
 
+<button onclick="Toglereset()">Forget Password</button>
+<div id="reset">
+<br>
+
+<form action="{% url 'pass_link' %}" method="POST">
+    {% csrf_token %}
+    <input type="email" name="mail" id="mail">
+    <button type="submit">Snd Link</button>
+</form>
+
+</div>
+
+
 {% endblock %}
+
